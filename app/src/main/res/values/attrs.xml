@@ -4,5 +4,6 @@
         <attr name="shouldShowIcon" format="boolean" />
         <attr name="isFieldAvailable" format="boolean" />
         <attr name="localTheme" format="string" />
+        <attr name="setVisibility" format="string" />
     </declare-styleable>
 </resources>

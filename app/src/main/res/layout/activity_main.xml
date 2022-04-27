@@ -12,6 +12,7 @@
     <com.br.component_sample.EditTextCustom
         android:id="@+id/username"
         app:localTheme="1"
+        app:setVisibility="0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

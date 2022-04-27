@@ -9,7 +9,10 @@ import androidx.appcompat.widget.SwitchCompat
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 
-class EditTextCustom(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
+class EditTextCustom(
+    context: Context,
+    attrs: AttributeSet?
+) : ConstraintLayout(context, attrs) {
 
     private var imgIcon: AppCompatImageView = AppCompatImageView(context)
     private var swtAvaible: SwitchCompat = SwitchCompat(context)
@@ -23,10 +26,28 @@ class EditTextCustom(context: Context, attrs: AttributeSet?) : ConstraintLayout(
         swtAvaible = findViewById(R.id.swt_available)
         edtField = findViewById(R.id.edt_field)
 
+        setGoneDescription(attributes)
+
         fieldVisibility()
         localThemeSetup(attributes)
 
         attributes.recycle()
+    }
+
+    private fun setGoneDescription(attributes: TypedArray) {
+        val visibility = attributes.getInt(R.styleable.EditTextCustomized_setVisibility, 0)
+        when (visibility) {
+            1 -> swtAvaible.visibility = GONE
+            2 -> {
+                imgIcon.visibility = GONE
+                swtAvaible.visibility = GONE
+            }
+            3 -> {
+                imgIcon.visibility = GONE
+                swtAvaible.visibility = GONE
+                edtField.visibility = GONE
+            }
+        }
     }
 
     private fun localThemeSetup(attributes: TypedArray) {
@@ -42,6 +63,9 @@ class EditTextCustom(context: Context, attrs: AttributeSet?) : ConstraintLayout(
             2 -> {
                 edtField.setBackgroundColor(ContextCompat.getColor(context, R.color.design_default_color_error))
             }
+            3 -> {
+                edtField.setBackgroundColor(ContextCompat.getColor(context, R.color.design_default_color_primary_variant))
+            }
             else -> {
                 edtField.setBackgroundColor(ContextCompat.getColor(context, R.color.design_default_color_surface))
             }
@@ -53,8 +77,10 @@ class EditTextCustom(context: Context, attrs: AttributeSet?) : ConstraintLayout(
         swtAvaible.setOnCheckedChangeListener { _ , isChecked ->
             if (isChecked) {
                 edtField.visibility = VISIBLE
+                imgIcon.visibility = VISIBLE
             } else {
-                edtField.visibility = INVISIBLE
+                edtField.visibility = GONE
+                imgIcon.visibility = GONE
             }
         }
     }
