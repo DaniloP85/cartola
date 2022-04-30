@@ -1,5 +1,6 @@
 package com.br.component_sample
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.TypedArray
 import android.util.AttributeSet
@@ -9,6 +10,7 @@ import androidx.appcompat.widget.SwitchCompat
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 
+@SuppressLint("CustomViewStyleable")
 class EditTextCustom(
     context: Context,
     attrs: AttributeSet?
@@ -26,7 +28,7 @@ class EditTextCustom(
         swtAvaible = findViewById(R.id.swt_available)
         edtField = findViewById(R.id.edt_field)
 
-        setGoneDescription(attributes)
+        localSetGoneSetup(attributes)
 
         fieldVisibility()
         localThemeSetup(attributes)
@@ -34,8 +36,12 @@ class EditTextCustom(
         attributes.recycle()
     }
 
-    private fun setGoneDescription(attributes: TypedArray) {
+    private fun localSetGoneSetup(attributes: TypedArray){
         val visibility = attributes.getInt(R.styleable.EditTextCustomized_setVisibility, 0)
+        setGoneDescription(visibility)
+    }
+
+    fun setGoneDescription(visibility: Int) {
         when (visibility) {
             1 -> swtAvaible.visibility = GONE
             2 -> {
@@ -55,7 +61,7 @@ class EditTextCustom(
         setLocalTheme(localTheme)
     }
 
-    private fun setLocalTheme(localTheme: Int) {
+    fun setLocalTheme(localTheme: Int) {
         when (localTheme) {
             1 -> {
                 edtField.setBackgroundColor(ContextCompat.getColor(context, R.color.design_default_color_secondary))

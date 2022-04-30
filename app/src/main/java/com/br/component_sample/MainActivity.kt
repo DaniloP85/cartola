@@ -11,8 +11,8 @@ class MainActivity : AppCompatActivity() {
         val username = findViewById<EditTextCustom>(R.id.username)
         val password = findViewById<EditTextCustom>(R.id.password)
 
-//        username.setLocalTheme(1)
-//        password.setLocalTheme(2)
+        username.setLocalTheme(2)
+        password.setLocalTheme(3)
 
     }
 }
