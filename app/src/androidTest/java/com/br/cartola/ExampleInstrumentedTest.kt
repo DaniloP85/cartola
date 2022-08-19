@@ -1,4 +1,4 @@
-package com.br.component_sample
+package com.br.cartola
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

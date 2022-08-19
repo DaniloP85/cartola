@@ -1,4 +1,4 @@
-package com.br.component_sample
+package com.br.cartola
 
 import org.junit.Test
 

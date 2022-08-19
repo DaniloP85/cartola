@@ -5,5 +5,9 @@
         <attr name="isFieldAvailable" format="boolean" />
         <attr name="localTheme" format="string" />
         <attr name="setVisibility" format="string" />
+        <attr name="testInput" format="enum" >
+            <enum name="actionVisible" value="1" />
+            <enum name="actionGone" value="0" />
+        </attr>
     </declare-styleable>
 </resources>
