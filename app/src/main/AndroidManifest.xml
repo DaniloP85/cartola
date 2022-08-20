@@ -14,8 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Componentsample">
         <activity
-            android:name=".ui.ListaDeLigasActivity"
+            android:name=".ui.TabActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">

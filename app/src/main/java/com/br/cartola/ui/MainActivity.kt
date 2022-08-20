@@ -1,14 +1,16 @@
 package com.br.cartola.ui
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.view.View.GONE
 import android.webkit.CookieManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
+import androidx.lifecycle.MutableLiveData
 import com.br.cartola.R
+import com.br.cartola.model.LigaModel
+import com.br.cartola.model.TimesModel
 import com.br.cartola.ui.viewmodel.TimesCartolaViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
@@ -24,6 +26,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val cartola = this.getSharedPreferences("cartola", Context.MODE_PRIVATE)
+
 
         webview.settings.javaScriptEnabled = true
         webview.loadUrl(url)
@@ -42,17 +47,28 @@ class MainActivity : AppCompatActivity() {
                         it[0].replace("GLBID=", "").trim()
                     }
 
-                    getLigas(tokenezed)
+                    val editor = cartola.edit()
+                    editor.putString("token", tokenezed)
+                    editor.apply()
+
+                    //val t = getLigas(tokenezed)
+                   // println("dsp: " + t.toString())
 
                 } catch (e: IndexOutOfBoundsException) {
                 } catch (e: NullPointerException) {
                 }
             }
         }
+        menu()
     }
 
-    private fun getLigas(tokenezed: String) {
-        viewModel.getTimesApi(tokenezed)
+    private fun menu(){
+        val intent = Intent(this, TabActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun getLigas(tokenezed: String) : TimesModel? {
+        return viewModel.getTimesApi(tokenezed)
     }
 
 }
