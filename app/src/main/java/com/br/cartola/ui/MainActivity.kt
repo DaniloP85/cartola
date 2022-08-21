@@ -50,6 +50,8 @@ class MainActivity : AppCompatActivity() {
                     val editor = cartola.edit()
                     editor.putString("token", tokenezed)
                     editor.apply()
+
+                    //TODO esse é o motivo de chamar tres vezes
                     menu()
                 } catch (e: IndexOutOfBoundsException) {
                 } catch (e: NullPointerException) {

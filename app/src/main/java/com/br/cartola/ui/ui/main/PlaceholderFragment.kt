@@ -31,8 +31,7 @@ class PlaceholderFragment : Fragment() {
         }
     }
 
-    // trocar aqui as telas
-    // de alguma forma criar as tela dinamicamentes
+    //TODO: trocar aqui as telas, alguma forma criar as tela dinamicamente
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
