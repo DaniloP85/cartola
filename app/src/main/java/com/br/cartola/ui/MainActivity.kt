@@ -51,6 +51,8 @@ class MainActivity : AppCompatActivity() {
                     editor.putString("token", tokenezed)
                     editor.apply()
 
+                    //TODO getLigas(tokenezed) esse era o comportamento original do @Samuel
+
                     //TODO esse é o motivo de chamar tres vezes
                     menu()
                 } catch (e: IndexOutOfBoundsException) {
@@ -70,7 +72,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
+   //TODO: não chamei na largada, mas essa função faz a chamada na API
     private fun getLigas(tokenezed: String) : TimesModel? {
         return viewModel.getTimesApi(tokenezed)
     }
