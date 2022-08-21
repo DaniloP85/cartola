@@ -1,15 +1,16 @@
 package com.br.cartola.ui
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
+import android.util.Log
 import android.webkit.CookieManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.MutableLiveData
 import com.br.cartola.R
-import com.br.cartola.model.LigaModel
 import com.br.cartola.model.TimesModel
 import com.br.cartola.ui.viewmodel.TimesCartolaViewModel
 import kotlinx.android.synthetic.main.activity_main.*
@@ -17,12 +18,13 @@ import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
 
-    private val url =
-        "https://minhaconta-v2.globo.com"
+    private val myUrl =
+        "https://minhaconta-v2.globo.com/#/"
 
     private val viewModel: TimesCartolaViewModel by inject()
     lateinit var tokenezed: String
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,10 +33,17 @@ class MainActivity : AppCompatActivity() {
 
 
         webview.settings.javaScriptEnabled = true
-        webview.loadUrl(url)
+        webview.loadUrl(myUrl)
         webview.webViewClient = object : WebViewClient() {
+
+            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                super.onPageStarted(view, url, favicon)
+                Log.e("T", url!!)
+            }
+
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
+
                 try {
                     textview.text = "Page Loading Started ..."
                     val cookie = CookieManager.getInstance().getCookie(url)
@@ -53,8 +62,9 @@ class MainActivity : AppCompatActivity() {
 
                     //TODO getLigas(tokenezed) esse era o comportamento original do @Samuel
 
-                    //TODO esse é o motivo de chamar tres vezes
-                    menu()
+                    if (url?.contains("https://login.globo.com/login/") == true) {
+                        menu()
+                    }
                 } catch (e: IndexOutOfBoundsException) {
                 } catch (e: NullPointerException) {
                 }
