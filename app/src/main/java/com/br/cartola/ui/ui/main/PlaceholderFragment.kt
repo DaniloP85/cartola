@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -29,6 +31,8 @@ class PlaceholderFragment : Fragment() {
         }
     }
 
+    // trocar aqui as telas
+    // de alguma forma criar as tela dinamicamentes
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,6 +40,7 @@ class PlaceholderFragment : Fragment() {
 
         _binding = TabBinding.inflate(inflater, container, false)
         val root = binding.root
+
 
         val textView: TextView = binding.sectionLabel
         pageViewModel.text.observe(viewLifecycleOwner, Observer {

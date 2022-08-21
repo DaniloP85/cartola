@@ -50,21 +50,23 @@ class MainActivity : AppCompatActivity() {
                     val editor = cartola.edit()
                     editor.putString("token", tokenezed)
                     editor.apply()
-
-                    //val t = getLigas(tokenezed)
-                   // println("dsp: " + t.toString())
-
+                    menu()
                 } catch (e: IndexOutOfBoundsException) {
                 } catch (e: NullPointerException) {
                 }
             }
         }
-        menu()
+
     }
 
     private fun menu(){
-        val intent = Intent(this, TabActivity::class.java)
-        startActivity(intent)
+        val saudacaoPersistencia = this.getSharedPreferences("cartola", Context.MODE_PRIVATE)
+        val token = saudacaoPersistencia.getString("token", "")
+
+        if (token.toString().isNotBlank()) {
+            val intent = Intent(this, TabActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun getLigas(tokenezed: String) : TimesModel? {
