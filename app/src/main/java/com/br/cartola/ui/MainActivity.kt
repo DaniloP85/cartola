@@ -3,6 +3,7 @@ package com.br.cartola.ui
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
@@ -30,61 +31,68 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val cartola = this.getSharedPreferences("cartola", Context.MODE_PRIVATE)
+        val cookie = CookieManager.getInstance().getCookie(myUrl)
 
+        val intent = Intent(this, TabActivity::class.java)
 
-        webview.settings.javaScriptEnabled = true
-        webview.loadUrl(myUrl)
-        webview.webViewClient = object : WebViewClient() {
+        if (menu()) {
+            val intent = Intent(this, TabActivity::class.java)
+            startActivity(intent)
+        } else {
+            token(cookie)
 
-            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
-                super.onPageStarted(view, url, favicon)
-                Log.e("T", url!!)
-            }
+            if (tokenezed.isNotEmpty()) {
+                val editor = cartola.edit()
+                editor.putString("token", tokenezed)
+                editor.apply()
 
-            override fun onPageFinished(view: WebView?, url: String?) {
-                super.onPageFinished(view, url)
+                // TODO test token before load (Flavio)
 
-                try {
-                    textview.text = "Page Loading Started ..."
-                    val cookie = CookieManager.getInstance().getCookie(url)
+                startActivity(intent)
+            } else {
+                webview.settings.javaScriptEnabled = true
+                webview.loadUrl(myUrl)
+                webview.webViewClient = object : WebViewClient() {
 
-                    val token = cookie.split(";").filter {
-                        it.indexOf("GLBID=") != -1
+                    override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                        super.onPageStarted(view, url, favicon)
+                        Log.e("T", url!!)
                     }
 
-                    tokenezed = token.let {
-                        it[0].replace("GLBID=", "").trim()
+                    override fun onPageFinished(view: WebView?, url: String?) {
+                        super.onPageFinished(view, url)
+
+                        try {
+                            textview.text = "Page Loading Started ..."
+                            token(cookie)
+
+                            if (tokenezed.isNotEmpty() && url?.contains("https://login.globo.com/login/") == true) {
+                                startActivity(intent)
+                            }
+                        } catch (e: IndexOutOfBoundsException) {
+                        } catch (e: NullPointerException) {
+                        }
                     }
-
-                    val editor = cartola.edit()
-                    editor.putString("token", tokenezed)
-                    editor.apply()
-
-                    //TODO getLigas(tokenezed) esse era o comportamento original do @Samuel
-
-                    if (url?.contains("https://login.globo.com/login/") == true) {
-                        menu()
-                    }
-                } catch (e: IndexOutOfBoundsException) {
-                } catch (e: NullPointerException) {
                 }
             }
         }
-
     }
 
-    private fun menu(){
+    private fun token(cookie: String) {
+        val token = cookie.split(";").filter {
+            it.indexOf("GLBID=") != -1
+        }
+
+        tokenezed = token.let {
+            it[0].replace("GLBID=", "").trim()
+        }
+    }
+
+    private fun menu(): Boolean {
         val saudacaoPersistencia = this.getSharedPreferences("cartola", Context.MODE_PRIVATE)
         val token = saudacaoPersistencia.getString("token", "")
 
-        if (token.toString().isNotBlank()) {
-            val intent = Intent(this, TabActivity::class.java)
-            startActivity(intent)
-        }
+        println(token.toString())
+        return token.toString().isNotBlank()
     }
-   //TODO: não chamei na largada, mas essa função faz a chamada na API
-    private fun getLigas(tokenezed: String) : TimesModel? {
-        return viewModel.getTimesApi(tokenezed)
-    }
-
 }
