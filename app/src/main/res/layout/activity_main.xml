@@ -6,15 +6,15 @@
     tools:context="com.br.cartola.ui.MainActivity"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:textSize="20sp"
-        android:padding="5dp"
-        android:textColor="#673AB7"
-        android:background="#FFEB3B"/>
+<!--    <TextView-->
+<!--        android:id="@+id/textview"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Hello World!"-->
+<!--        android:textSize="20sp"-->
+<!--        android:padding="5dp"-->
+<!--        android:textColor="#673AB7"-->
+<!--        android:background="#FFEB3B"/>-->
 
     <WebView
         android:id="@+id/webview"

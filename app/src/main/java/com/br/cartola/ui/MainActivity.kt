@@ -63,7 +63,6 @@ class MainActivity : AppCompatActivity() {
                         super.onPageFinished(view, url)
 
                         try {
-                            textview.text = "Page Loading Started ..."
                             token(cookie)
 
                             if (tokenezed.isNotEmpty() && url?.contains("https://login.globo.com/login/") == true) {
@@ -79,12 +78,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun token(cookie: String) {
-        val token = cookie.split(";").filter {
-            it.indexOf("GLBID=") != -1
-        }
+        if(cookie.isNotBlank() && cookie.contains("GLBID=")) {
+            val token = cookie.split(";").filter {
+                it.indexOf("GLBID=") != -1
+            }
 
-        tokenezed = token.let {
-            it[0].replace("GLBID=", "").trim()
+            tokenezed = token.let {
+                it[0].replace("GLBID=", "").trim()
+            }
+        } else {
+            tokenezed = ""
         }
     }
 
@@ -92,7 +95,6 @@ class MainActivity : AppCompatActivity() {
         val saudacaoPersistencia = this.getSharedPreferences("cartola", Context.MODE_PRIVATE)
         val token = saudacaoPersistencia.getString("token", "")
 
-        println(token.toString())
         return token.toString().isNotBlank()
     }
 }
