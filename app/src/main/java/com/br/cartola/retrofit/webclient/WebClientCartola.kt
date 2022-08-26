@@ -7,6 +7,5 @@ class WebClientCartola(
     private val services: CartolaService = AppRetrofit().services
 ) {
 
-    suspend fun getTimes(token: String?) = services.getTimes(token).body()
-
+    suspend fun getMinhasLigas(token: String) = services.getMinhasLigas(token).body()
 }

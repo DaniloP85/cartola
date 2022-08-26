@@ -6,6 +6,6 @@ class RepositotyCartola(
     private val webClientCartola: WebClientCartola
 ) {
 
-    suspend fun getTimesApi(token: String?) = webClientCartola.getTimes(token)
+    suspend fun getMinhasLigasApi(token: String?) = webClientCartola.getMinhasLigas(token.toString())
 
 }

@@ -3,7 +3,6 @@ package com.br.cartola.ui
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
@@ -12,8 +11,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import com.br.cartola.R
-import com.br.cartola.model.TimesModel
-import com.br.cartola.ui.viewmodel.TimesCartolaViewModel
+import com.br.cartola.ui.viewmodel.LigasCartolaViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 
@@ -22,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     private val myUrl =
         "https://minhaconta-v2.globo.com/#/"
 
-    private val viewModel: TimesCartolaViewModel by inject()
+    private val viewModel: LigasCartolaViewModel by inject()
     lateinit var tokenezed: String
 
     @SuppressLint("SetJavaScriptEnabled")

@@ -4,13 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.br.cartola.model.LigaModel
-import com.br.cartola.model.TimesModel
+import com.br.cartola.model.LigasModel
 import com.br.cartola.repository.RepositotyCartola
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class TimesCartolaViewModel(
+class LigasCartolaViewModel(
     private val repository: RepositotyCartola
 ) : ViewModel() {
 
@@ -22,15 +21,19 @@ class TimesCartolaViewModel(
     val spinner: LiveData<Boolean>
         get() = _spinner
 
-    private val _times = MutableLiveData<TimesModel>()
-    val times: LiveData<TimesModel>
-        get() = _times
+    private val _ligas = MutableLiveData<LigasModel>()
+    val ligas: LiveData<LigasModel>
+        get() = _ligas
 
-    fun getTimesApi(token: String?): TimesModel? {
-        launchDataLoad {
-            _times.value = repository.getTimesApi(token)
+    fun getMinhasLigasApi(token: String?) {
+//        launchDataLoad {
+        viewModelScope.launch {
+            val getList = repository.getMinhasLigasApi(token)
+            _ligas.postValue(getList!!)
         }
-        return _times.value
+
+//        }
+       // return _ligas.value
     }
 
     private fun launchDataLoad(block: suspend () -> Unit): Job {

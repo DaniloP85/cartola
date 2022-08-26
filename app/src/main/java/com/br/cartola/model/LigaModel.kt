@@ -6,13 +6,13 @@ import java.util.*
 data class LigaModel(
 
     @SerializedName("liga_id")
-    val ligaId: Integer,
+    val ligaId: Int,
 
     @SerializedName("time_dono_id")
-    val timeDonoId: Objects,
+    val timeDonoId: Int,
 
     @SerializedName("clube_id")
-    val clubeId: Objects,
+    val clubeId: Int,
 
     @SerializedName("nome")
     val nome: String,
