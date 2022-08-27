@@ -37,9 +37,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, TabActivity::class.java)
             startActivity(intent)
         } else {
-            token(cookie)
 
-            if (tokenezed.isNotEmpty()) {
+            if (!cookie.isNullOrEmpty()) {
+                token(cookie)
                 val editor = cartola.edit()
                 editor.putString("token", tokenezed)
                 editor.apply()
