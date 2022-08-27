@@ -14,7 +14,7 @@ import com.squareup.picasso.Picasso
 
 class Adapter (private var list: List<LigaModel>): RecyclerView.Adapter<Adapter.viewHolder>() {
     inner class viewHolder (view: View): RecyclerView.ViewHolder(view) {
-        private val timeBandeira = view.findViewById<ImageView>(R.id.timeBandeira)
+        private val bandeira = view.findViewById<ImageView>(R.id.timeBandeira)
         private val nome = view.findViewById<TextView>(R.id.nome)
         private val description = view.findViewById<TextView>(R.id.description)
 
@@ -23,7 +23,7 @@ class Adapter (private var list: List<LigaModel>): RecyclerView.Adapter<Adapter.
             description.text = ligaModel.descricao
             Picasso.get()
                 .load(ligaModel.urlFlamulaPng)
-                .into(timeBandeira);
+                .into(bandeira);
 
 //            description.setOnClickListener {
 //                // carregar os times da liga
