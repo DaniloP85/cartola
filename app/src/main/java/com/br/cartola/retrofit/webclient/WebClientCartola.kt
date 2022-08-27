@@ -8,4 +8,6 @@ class WebClientCartola(
 ) {
 
     suspend fun getMinhasLigas(token: String) = services.getMinhasLigas(token).body()
+
+    suspend fun getMeuTime(token: String) = services.getMeutime(token).body()
 }

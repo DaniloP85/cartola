@@ -8,4 +8,6 @@ class RepositotyCartola(
 
     suspend fun getMinhasLigasApi(token: String?) = webClientCartola.getMinhasLigas(token.toString())
 
+    suspend fun getMeuTimeApi(token: String?) = webClientCartola.getMeuTime(token.toString())
+
 }

@@ -5,11 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.br.cartola.model.LigasModel
+import com.br.cartola.model.MeuTimeModel
 import com.br.cartola.repository.RepositotyCartola
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class LigasCartolaViewModel(
+class MeuTimeCartolaViewModel(
     private val repository: RepositotyCartola
 ) : ViewModel() {
 
@@ -21,14 +22,14 @@ class LigasCartolaViewModel(
     val spinner: LiveData<Boolean>
         get() = _spinner
 
-    private val _ligas = MutableLiveData<LigasModel>()
-    val ligas: LiveData<LigasModel>
-        get() = _ligas
+    private val _meuTime = MutableLiveData<MeuTimeModel>()
+    val meuTime: LiveData<MeuTimeModel>
+        get() = _meuTime
 
-    fun getMinhasLigasApi(token: String?) {
+    fun getMeuTimeApi(token: String?) {
         viewModelScope.launch {
-            val getList = repository.getMinhasLigasApi(token)
-            _ligas.postValue(getList!!)
+            val getMeuTime = repository.getMeuTimeApi(token)
+            _meuTime.postValue(getMeuTime!!)
         }
     }
 

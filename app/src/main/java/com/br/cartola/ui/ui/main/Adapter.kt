@@ -14,18 +14,20 @@ import com.squareup.picasso.Picasso
 
 class Adapter (private var list: List<LigaModel>): RecyclerView.Adapter<Adapter.viewHolder>() {
     inner class viewHolder (view: View): RecyclerView.ViewHolder(view) {
-        private val imagem = view.findViewById<ImageView>(R.id.slug)
+        private val timeBandeira = view.findViewById<ImageView>(R.id.timeBandeira)
+        private val nome = view.findViewById<TextView>(R.id.nome)
         private val description = view.findViewById<TextView>(R.id.description)
 
         fun bind(ligaModel: LigaModel) {
-            description.text = ligaModel.nome
+            nome.text = ligaModel.nome
+            description.text = ligaModel.descricao
             Picasso.get()
-                .load(ligaModel.imagem)
-                .into(imagem);
+                .load(ligaModel.urlFlamulaPng)
+                .into(timeBandeira);
 
-            description.setOnClickListener {
-                // carregar os times da liga
-            }
+//            description.setOnClickListener {
+//                // carregar os times da liga
+//            }
         }
     }
 

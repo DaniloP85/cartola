@@ -15,6 +15,7 @@ import com.br.cartola.databinding.TabBinding
 import com.br.cartola.model.LigaModel
 import com.br.cartola.model.LigasModel
 import com.br.cartola.ui.viewmodel.LigasCartolaViewModel
+import com.br.cartola.ui.viewmodel.MeuTimeCartolaViewModel
 import org.koin.android.ext.android.inject
 
 /**
@@ -22,10 +23,10 @@ import org.koin.android.ext.android.inject
  */
 class PlaceholderFragment : Fragment() {
 
-    private lateinit var pageViewModel: PageViewModel
     private var _binding: TabBinding? = null
 
     private val viewModel: LigasCartolaViewModel by inject()
+//    private val viewMeuTimeModel: MeuTimeCartolaViewModel by inject()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -34,14 +35,12 @@ class PlaceholderFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        pageViewModel = ViewModelProvider(this).get(PageViewModel::class.java).apply {
-            setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
-        }
-
         val saudacaoPersistencia = this.activity?.getSharedPreferences("cartola", Context.MODE_PRIVATE)
         var token = saudacaoPersistencia?.getString("token", "")
 
+        //viewMeuTimeModel.getMeuTimeApi(token)
         viewModel.getMinhasLigasApi(token)
+
     }
 
     //TODO: trocar aqui as telas, alguma forma criar dinamicamente
@@ -87,9 +86,5 @@ class PlaceholderFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun getMinhasLigas(tokenezed: String) {
-        viewModel.getMinhasLigasApi(tokenezed)
     }
 }
