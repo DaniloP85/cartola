@@ -16,7 +16,7 @@ Execute o projeto no seguinte icone.
 
 ## Visão geral da arquitetura
 Este projeto foi construido com a linguagem Kotlin e construído com a arquitetura MVVM junto com LiveData, Coroutines para uma requisição assíncrona e Retrofit para se comunicar com a API da Globo e Injeção de dependência com Koin.
-Desenvolvido com Fragments e com o uso também de DataBinding para manipulação das Views.
+Desenvolvido com Activity e Fragments e com o uso também de DataBinding para manipulação das Views.
 Referente a persistência de dados foi utilizado o SharedPreferences para salvar o token após o primeiro login, RecyclerView para Listar as ligas e escalações.
 
 ## Fluxo de trabalho de Controle de Versão
@@ -45,7 +45,7 @@ Certifique-se de que seu dispositivo tenha a versão Android >= 21.
 ![WhatsApp Image 2022-08-17 at 14 06 38](https://user-images.githubusercontent.com/26841238/187085705-75a75056-8773-44df-9ed5-9bfc3ba63e3f.jpeg)
 
 
-## Tela de detalhe do personagem.
+## Tela de Escalação e Ligas.
 > Aqui você ve suas ligas.
 
 ![WhatsApp Image 2022-08-26 at 22 20 49](https://user-images.githubusercontent.com/26841238/187085758-cd61cdd5-deb9-48d9-a0f8-85c3e9f73f5c.jpeg)
