@@ -1,4 +1,4 @@
-# Aplicativo Cartola Club
+# Cartola Club
 
 ## Introdução
 Cartola Club é um aplicativo nativo usado na plataforma Android. Ele pode ser usado para ver suas escalações e times. Este diretório é para mostrar exemplos de uso do CartolaClub. 
@@ -38,3 +38,15 @@ Android Studio Chipmunk | 2021.2.1 Patch 1
 dispositivo de teste: Android 21 (Google Pixel 2)
 Certifique-se de que seu dispositivo tenha a versão Android >= 21.
 ```
+
+## Tela Principal
+> Nesta tela é realizado o login com sua conta da globo para ter acesso ao seus times e escalações.
+
+![WhatsApp Image 2022-08-17 at 14 06 38](https://user-images.githubusercontent.com/26841238/187085705-75a75056-8773-44df-9ed5-9bfc3ba63e3f.jpeg)
+
+
+## Tela de detalhe do personagem.
+> Aqui você ve suas ligas.
+
+![WhatsApp Image 2022-08-26 at 22 20 49](https://user-images.githubusercontent.com/26841238/187085758-cd61cdd5-deb9-48d9-a0f8-85c3e9f73f5c.jpeg)
+
