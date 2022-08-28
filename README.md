@@ -15,9 +15,9 @@ Execute o projeto no seguinte icone.
 <img width="24" alt="Captura de Tela 2022-08-18 às 16 50 33" src="https://user-images.githubusercontent.com/26841238/185482305-56a82404-d54c-4590-a658-b855461eb1d2.png">
 
 ## Visão geral da arquitetura
-Este projeto foi construido com a linguagem Kotlin e construído com a arquitetura MVVM junto com LiveData, Coroutines para uma requisição assíncrona e Retrofit para se comunicar com a API da Marvel e Injeção de dependência com Koin.
-Desenvolvido com Fragments e Navigation para construir um fluxo de telas bem estruturados e com o uso também de DataBinding para manipulação das Views.
-Referente a persistência de dados foi utilizado o Room para salvar os personagens da Marvel, RecyclerView para Listar os personagens na Tela principal e na tela de favoritos e uma NavigationBar para acessar QG dos heróis.
+Este projeto foi construido com a linguagem Kotlin e construído com a arquitetura MVVM junto com LiveData, Coroutines para uma requisição assíncrona e Retrofit para se comunicar com a API da Globo e Injeção de dependência com Koin.
+Desenvolvido com Fragments e com o uso também de DataBinding para manipulação das Views.
+Referente a persistência de dados foi utilizado o SharedPreferences para salvar o token após o primeiro login, RecyclerView para Listar as ligas e escalações.
 
 ## Fluxo de trabalho de Controle de Versão
 Usamos vagamente a abordagem "Git flow": master é a versão
