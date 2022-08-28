@@ -46,7 +46,7 @@ Certifique-se de que seu dispositivo tenha a versão Android >= 21.
 
 
 ## Tela de Escalação e Ligas.
-> Aqui você ve suas ligas.
+> Aqui você ve sua escalação e ligas.
 
 ![WhatsApp Image 2022-08-26 at 22 20 49](https://user-images.githubusercontent.com/26841238/187085758-cd61cdd5-deb9-48d9-a0f8-85c3e9f73f5c.jpeg)
 
