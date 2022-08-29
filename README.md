@@ -44,9 +44,13 @@ Certifique-se de que seu dispositivo tenha a versão Android >= 21.
 
 ![WhatsApp Image 2022-08-17 at 14 06 38](https://user-images.githubusercontent.com/26841238/187085705-75a75056-8773-44df-9ed5-9bfc3ba63e3f.jpeg)
 
+## Tela de Escalação.
+> Aqui você ve sua escalação.
 
-## Tela de Escalação e Ligas.
-> Aqui você ve sua escalação e ligas.
+![WhatsApp Image 2022-08-29 at 18 47 38](https://user-images.githubusercontent.com/26841238/187309036-febceb6e-592b-4209-a9f2-1e5feb76fe0c.jpeg)
+
+## Tela de ligas.
+> Aqui você ve suas ligas.
 
 ![WhatsApp Image 2022-08-26 at 22 20 49](https://user-images.githubusercontent.com/26841238/187085758-cd61cdd5-deb9-48d9-a0f8-85c3e9f73f5c.jpeg)
 
