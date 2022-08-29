@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     private val myUrl =
         "https://minhaconta-v2.globo.com/#/"
 
-    private val viewModel: LigasCartolaViewModel by inject()
     lateinit var tokenezed: String
 
     @SuppressLint("SetJavaScriptEnabled")

@@ -5,8 +5,8 @@ import java.util.*
 
 data class ScoutModel(
 
-    @SerializedName("CA")
-    val ca: Int,
+    @SerializedName("A")
+    val a: Int,
 
     @SerializedName("DS")
     val ds: Int,
@@ -23,6 +23,36 @@ data class ScoutModel(
     @SerializedName("FS")
     val fs: Int,
 
+    @SerializedName("G")
+    val g: Int,
+
+    @SerializedName("I")
+    val i: Int,
+
     @SerializedName("PI")
-    val pi: Int
+    val p: Int,
+
+    @SerializedName("FT")
+    val ft: Int,
+
+    @SerializedName("CA")
+    val ca: Int,
+
+    @SerializedName("CV")
+    val cv: Int,
+
+    @SerializedName("PC")
+    val pc: Int,
+
+    @SerializedName("SG")
+    val sg: Int,
+
+    @SerializedName("DE")
+    val de: Int,
+
+    @SerializedName("GS")
+    val gs: Int,
+
+    @SerializedName("PS")
+    val ps: Int
 )

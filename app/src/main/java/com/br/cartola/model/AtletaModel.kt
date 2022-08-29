@@ -5,8 +5,8 @@ import java.util.*
 
 data class AtletaModel(
 
-    @SerializedName("scout")
-    val scout: ScoutModel,
+//    @SerializedName("scout")
+//    val scout: ScoutModel,
 
     @SerializedName("atleta_id")
     val atletaId: Int,
@@ -30,7 +30,7 @@ data class AtletaModel(
     val variacaoNum: Double,
 
     @SerializedName("media_num")
-    val mediaNum: Boolean,
+    val mediaNum: Double,
 
     @SerializedName("jogos_num")
     val jogosNum: Int,
@@ -38,8 +38,8 @@ data class AtletaModel(
     @SerializedName("minimo_para_valorizar")
     val minimoParaValorizar: Double,
 
-    @SerializedName("gato_mestre")
-    val gatoMestre: GatoMestreModel,
+//    @SerializedName("gato_mestre")
+//    val gatoMestre: GatoMestreModel,
 
     @SerializedName("slug")
     val slug: String,

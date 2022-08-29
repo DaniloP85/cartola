@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.br.cartola.model.LigasModel
 import com.br.cartola.model.MeuTimeModel
 import com.br.cartola.repository.RepositotyCartola
 import kotlinx.coroutines.Job
