@@ -1,5 +1,5 @@
 # Cartola Club
-
+ 
 ## Introdução
 Cartola Club é um aplicativo nativo e NÃO OFICIAL do game Cartola da globo.com, usado na plataforma Android. Ele pode ser usado para ver suas escalações e ligas. Este diretório é para mostrar exemplos de uso do CartolaClub. 
 
